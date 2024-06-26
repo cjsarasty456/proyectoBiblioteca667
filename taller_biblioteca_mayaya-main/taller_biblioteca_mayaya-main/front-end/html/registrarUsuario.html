@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <title>Registrar usuario</title>
+    <script src="../js/usuario.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <a href="../html/paginaPrincipal.html"> <img src="../img/volver.png" alt="" width="50px" style="margin-top: 80px;"></a>
+        </div>
+        <h1 style="margin-top: 100px">Añadir Usuario</h1>
+        <h6>Todos los campos con asterisco son obligatorios *</h6>
+        <br>
+        <div class="row">
+
+            <div class="col col-xl-6 col-12">
+                <b><label for="">Número documento *</label></b>
+                <input type="number" id="numero_documento_usuario" step="1" class="form-control"
+                    onfocusout="validarNumDocumento(this);" />
+            </div>
+
+            <div class="col col-xl-6 col-12">
+                <b><label for="">Nombre completo *</label></b>
+                <input type="text" id="nombre_usuario" class="form-control" onfocusout="validarNombre(this);" />
+            </div>
+
+            <div class="col col-xl-6 col-12">
+                <b><label for="">Dirección *</label></b>
+                <input type="text" id="direccion_usuario" class="form-control" onfocusout="validarDireccion(this);" />
+            </div>
+
+            
+            <div class="col col-xl-6 col-12">
+                <b><label for="">Correo electrónico *</label></b>
+                <input type="text" id="correo_electronico_usuario" class="form-control" onfocusout="validarCorreo(this);" />
+            </div>
+
+            <div class="col col-xl-6 col-12">
+                <b><label for="">Tipo usuario *</label></b>
+                <input type="text" id="tipo_usuario" class="form-control" onfocusout="validarTipo_usuario(this);" />
+            </div>
+            
+        </div>
+        <br>
+        <div id="mensaje"></div>
+        <script>function mostrar(){
+                var texto=document.getElementById("nombre_usuario").value;
+                document.getElementById("mensaje").innerHTML=texto;
+            } 
+        
+        </script>
+        <button id="enviar" class="btn btn-success" onclick="mostrar();">
+            Enviar
+        </button>
+        <button class="btn btn-primary" onclick="limpiarUsuario();">
+            Limpiar
+        </button>
+        <a href="./paginaPrincipal.html"><button class="btn btn-warning">Ir a página Principal</button></a>
+    </div>
+</body>
+
+</html>

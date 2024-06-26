@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="../css/bootstrap.css" />
+  <script src="../js/bootstrap.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../js/usuario.js"></script>
+  <title>Listado usuarios</title>
+</head>
+<!--cse requiere que cuando cargue la pagina se ejecute la peticionde listar los clientes-->
+
+<body onload="listarUsuario();">
+  <div class="container">
+
+    <div class="row">
+      <a href="../html/paginaPrincipal.html"> <img src="../img/volver.png" alt="" width="50px" style="margin-top: 80px;"></a>
+  </div>
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <b><a class="navbar-brand">Filtros</a></b>
+        <form class="d-flex" role="search" return false;>
+          <input class="form-control me-2" type="search" placeholder="Buscar libro" aria-label="Search"
+            id="inputSearch">
+          <button class="btn btn-outline-success" type="button" onclick="listarUsuario();">Buscar</button>
+          <a href="./paginaPrincipal.html" class="btn btn-outline-primary">
+            <i class="fas fa-home"></i>
+          </a>
+        </form>
+
+      </div>
+
+    </nav>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <td style="border: 4px solid white !important">Id usuario</td>
+          <td style="border: 4px solid white !important">
+            Número documento
+          </td>
+          <td style="border: 4px solid white !important">
+            Nombre completo
+          </td>
+          <td style="border: 4px solid white !important">Dirección</td>
+          <td style="border: 4px solid white !important">Correo Electrónico</td>
+          <td style="border: 4px solid white !important">Tipo usuario</td>
+          <td style="border: 4px solid white !important">Opciones</td>
+        </tr>
+      </thead>
+
+
+      <tbody id="cuerpoTabla"></tbody>
+    </table>
+
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Editar usuario</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+
+                <h6>Todos los campos con asterisco son obligatorios *</h6>
+                <input id="id_usuario" type="hidden">
+                <div class="col col-xl-6 col-12">
+                    <b><label for="">Número documento *</label></b>
+                    <input type="number" id="numero_documento_usuario" step="1" class="form-control"
+                        onfocusout="validarNumDocumento(this);" />
+                </div>
+    
+                <div class="col col-xl-6 col-12">
+                    <b><label for="">Nombre completo *</label></b>
+                    <input type="text" id="nombre_usuario" class="form-control" onfocusout="validarNombre(this);" />
+                </div>
+    
+                <div class="col col-xl-6 col-12">
+                    <b><label for="">Dirección *</label></b>
+                    <input type="text" id="direccion_usuario" class="form-control" onfocusout="validarDireccion(this);" />
+                </div>
+    
+                
+                <div class="col col-xl-6 col-12">
+                    <b><label for="">Correo electrónico *</label></b>
+                    <input type="text" id="correo_electronico_usuario" class="form-control" onfocusout="validarCorreo(this);" />
+                </div>
+    
+                <div class="col col-xl-6 col-12">
+                    <b><label for="">Tipo usuario *</label></b>
+                    <input type="text" id="tipo_usuario" class="form-control" onfocusout="validarTipo_usuario(this);" />
+                </div>
+                
+            </div>
+          <button type="button" class="btn btn-primary" onclick="actualizarUsuario();">Actualizar</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

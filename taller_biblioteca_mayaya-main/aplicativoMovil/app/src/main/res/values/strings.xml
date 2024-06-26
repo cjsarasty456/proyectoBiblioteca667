@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Biblio Mayaya</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="genero">Genero</string>
+    <string name="numero_ejemplares_disponibles">Numero ejemplares disponibles</string>
+    <string name="numero_ejemplares_ocupados">Numero ejemplares ocupados</string>
+    <string name="isbn">ISBN</string>
+    <string name="autor">Autor</string>
+    <string name="titulo">Titulo</string>
+    <string name="placeHolderTitulo">Escriba el título del libro</string>
+    <string name="placeHolderAutor">Escriba el autor</string>
+    <string name="placeHolderIsbn">Escriba el ISBN</string>
+    <string name="placeHolderGenero">Escriba el genero</string>
+    <string name="placeHolderDisponible">Escriba el n° de disponibles</string>
+    <string name="placeHolderOcupado">Escriba el n° de ocupados</string>
+</resources>

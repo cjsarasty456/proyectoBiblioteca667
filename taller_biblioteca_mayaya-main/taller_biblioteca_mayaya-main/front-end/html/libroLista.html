@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="../css/bootstrap.css" />
+  <script src="../js/bootstrap.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../js/libro.js"></script>
+  <title>Listado libros</title>
+</head>
+<!--cse requiere que cuando cargue la pagina se ejecute la peticionde listar los clientes-->
+
+<body onload="listarLibro();">
+  <div class="container">
+
+    <div class="row">
+      <a href="../html/paginaPrincipal.html"> <img src="../img/volver.png" alt="" width="50px" style="margin-top: 80px;"></a>
+  </div>
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <b><a class="navbar-brand">Filtros</a></b>
+        <form class="d-flex" role="search" return false;>
+          <input class="form-control me-2" type="search" placeholder="Buscar libro" aria-label="Search"
+            id="inputSearch">
+          <button class="btn btn-outline-success" type="button" onclick="listarLibro();">Buscar</button>
+          <a href="./paginaPrincipal.html" class="btn btn-outline-primary">
+            <i class="fas fa-home"></i>
+          </a>
+        </form>
+
+      </div>
+
+    </nav>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <td style="border: 4px solid white !important">Id libro</td>
+          <td style="border: 4px solid white !important">
+            Título libro
+          </td>
+          <td style="border: 4px solid white !important">
+            Autor libro
+          </td>
+          <td style="border: 4px solid white !important">ISBN libro</td>
+          <td style="border: 4px solid white !important">Genero literario</td>
+          <td style="border: 4px solid white !important">Numero ejemplares disponibles</td>
+          <td style="border: 4px solid white !important">
+            Numero ejemplares ocupados
+          </td>
+          <td style="border: 4px solid white !important">Opciones</td>
+        </tr>
+      </thead>
+
+
+      <tbody id="cuerpoTabla"></tbody>
+    </table>
+
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Editar libro</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <h6>Todos los campos con asterisco son obligatorios *</h6>
+            <input id="id_libro" type="hidden">
+            <div class="col col-xl-6 col-12">
+                <b><label for="">Título libro *</label></b>
+                <input type="text" id="titulo_libro" class="form-control" onfocusout="validarTitulo_libro(this);" />
+            </div>
+
+            <div class="col col-xl-6 col-12">
+                <b><label for="">Autor libro *</label></b>
+                <input type="text" id="autor_libro" class="form-control" onfocusout="validarAutor_libro(this);" />
+            </div>
+
+            <div class="col col-xl-6 col-12">
+                <b><label for="">ISBN libro *</label></b>
+                <input type="number" id="isbn_libro" step="1" class="form-control"
+                    onfocusout="validarIsbn_libro(this);" />
+            </div>
+            <div class="col col-xl-6 col-12">
+                <b><label for="">Genero libro *</label></b>
+                <input type="text" id="genero_libro" class="form-control" onfocusout="validarGenero_libro(this);" />
+            </div>
+            <div class="col col-xl-6 col-12">
+                <b><label for="">Numero ejemplares disponibles *</label></b>
+                <input type="number" id="numero_ejemplares_disponibles" step="1" class="form-control"
+                    onfocusout="validarNumero_ejemplares_disponibles(this);" />
+            </div>
+            <div class="col col-xl-6 col-12">
+                <b><label for="">Numero ejemplares ocupados *</label></b>
+                <input type="text" id="numero_ejemplares_ocupados" class="form-control"
+                    onfocusout="validarNumero_ejemplares_ocupados(this);" />
+            </div>
+            
+        </div>
+          <button type="button" class="btn btn-primary" onclick="actualizarLibro();">Actualizar</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
